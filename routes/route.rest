@@ -1,0 +1,24 @@
+
+GET http://localhost:4000/count
+#####
+
+POST http://localhost:4000/
+Content-Type: application/json
+
+{
+    "series":"Stratix4",
+    "device":"xxd",
+    
+}
+
+######
+GET http://localhost:4000/fpga
+
+
+
+
+
+
+
+
+
