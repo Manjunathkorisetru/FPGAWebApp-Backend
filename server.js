@@ -4,6 +4,8 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
+app.use(cors());
+app.use(express.json());
 
 try {
   mongoose.connect(
@@ -18,11 +20,10 @@ const db = mongoose.connection;
 db.once("open", () => console.log("Database Opened")).on("error", (error) => {
   console.log("Your Error", error);
 });
+app.get("/", (req, res) => {
+  res.send("Welcome to FPGA Web App Backend Server !");
+});
 
-app.use(cors());
-app.use(express.json());
-
-//IntelVisualization
 const Viz = require("./routes/Visualization");
 app.use("/vis", Viz);
 
